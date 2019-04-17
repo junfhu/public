@@ -32,3 +32,15 @@ _	%5F
 ~	%7E
 
 Also if you are using curl, there is an option like --data-urlencode
+
+I have a problem when I have ! in the password, like
+
+#curl -s -k -X GET https://123:123456!@10.37.2.90/api/json/v2/types/volumes
+-bash: !@10.37.2.90/api/json/v2/types/volumes: event not found
+
+Then I can just add '' for the url and workaround it.
+#curl -s -k -X GET 'https://123:123456!@10.37.2.90/api/json/v2/types/volumes'
+
+Another solution is to use %21 to replace !
+#curl -s -k -X GET  https://tech:X10Tech%21@10.37.2.90/api/json/v2/types/volumes
+
