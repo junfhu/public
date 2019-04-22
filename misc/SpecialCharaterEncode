@@ -44,3 +44,13 @@ Then I can just add '' for the url and workaround it.
 Another solution is to use %21 to replace !
 #curl -s -k -X GET  https://123:123456%21@10.37.2.90/api/json/v2/types/volumes
 
+
+I have another ' to be escaped in json and here are the formats to work
+Format 1: 
+curl -s -k -H "Cookie:xxxx" -H "Content-type: application/json" -d "{\"query\":\"program_name='xxx' and build_state='xxx' and build_flavor='xxx'\",\"limit\":1}" -X PUT http://xxx.xxx/api/search
+
+Format 2: 
+curl -s -k -H "Cookie:xxxx" -H "Content-type: application/json" -d '{"query":"program_name='\''xxx'\'' and build_state='\''xxx'\'' and build_flavor='\''xxx'\''","limit":1}' -X PUT http://xxx.xxx/api/search
+
+
+
